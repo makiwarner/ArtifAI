@@ -1,8 +1,13 @@
-langchain
+langchain>=0.2.2
+langchain-community
+langchain-huggingface
 tiktoken
 faiss-cpu
 scikit-learn
-spacy
-langchain-community
+spacy==3.8.5
+thinc<8.4.0,>=8.3.4
 sentence-transformers
 transformers
+numpy<2
+torch
+wikipedia
