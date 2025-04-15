@@ -1,4 +1,8 @@
-spacy>=3.0.0
-nltk>=3.5
-
-python -m spacy download en_core_web_md
+langchain
+tiktoken
+faiss-cpu
+scikit-learn
+spacy
+langchain-community
+sentence-transformers
+transformers
