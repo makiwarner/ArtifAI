@@ -1,2 +1,9 @@
 Flask==2.2.3
-
+langchain
+tiktoken
+faiss-cpu
+scikit-learn
+spacy
+langchain-community
+sentence-transformers
+transformers
