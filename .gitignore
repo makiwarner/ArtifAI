@@ -1,0 +1,49 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+.Python
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# FAISS index and embedding artifacts
+embeddings/faiss_index/
+
+# User-specific or system-specific files
+.DS_Store
+*.swp
+*.swo
+
+# PyInstaller
+dist/
+build/
+*.spec
+
+# Logs and runtime files
+*.log
+
+# VS Code settings
+.vscode/
+
+# Test coverage reports
+htmlcov/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Pytest
+.pytest_cache/
+
+# Environment variables or secrets
+.env
+.env.*
