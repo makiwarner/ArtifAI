@@ -3,18 +3,12 @@ import json
 import re
 import spacy
 import nltk
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from flask import Flask, request, jsonify, render_template
-from modules.faq import get_best_faq_answer
-from modules.sentence_matcher import get_best_sentence
-from modules.flatten import flatten_content
 
 nltk.download('stopwords')
 nltk.download('punkt')
 
-# Updated the ARTIST_FOLDER to use an absolute path for better compatibility
-ARTIST_FOLDER = os.path.join(os.path.dirname(__file__), '..', 'artists')
+ARTIST_FOLDER = "artists"
 artist_files = [f for f in os.listdir(ARTIST_FOLDER) if f.endswith(".json")]
 # Get sorted list of artist keys (filenames without .json)
 artist_keys_sorted = sorted([os.path.splitext(f)[0] for f in artist_files])
@@ -42,6 +36,21 @@ class WebArtistChatBot:
         file_path = os.path.join(self.artist_directory, json_filename)
         with open(file_path, "r") as f:
             self.artist_info = json.load(f)
+
+        def flatten_content(item):
+            """
+            Recursively traverse the item and return a list of all string values found.
+            """
+            results = []
+            if isinstance(item, str):
+                results.append(item.strip())
+            elif isinstance(item, list):
+                for element in item:
+                    results.extend(flatten_content(element))
+            elif isinstance(item, dict):
+                for key, value in item.items():
+                    results.extend(flatten_content(value))
+            return results
 
         # Process all info from the JSON.
         sections = [
@@ -79,11 +88,45 @@ class WebArtistChatBot:
         self.sentences = list(set(self.sentences))
         self.end_chat = False
 
+
     def get_best_faq_answer(self, user_input):
-        return get_best_faq_answer(user_input, self.faq_map, self.nlp)
+        """
+        Checks the FAQ mapping for the best matching question and returns its answer 
+        if the similarity score is above the threshold.
+        """
+        if not self.faq_map:
+            return None
+        user_doc = self.nlp(user_input)
+        best_score = 0.0
+        best_answer = None
+        for entry in self.faq_map:
+            question_doc = self.nlp(entry["question"])
+            score = user_doc.similarity(question_doc)
+            if score > best_score:
+                best_score = score
+                best_answer = entry["answer"]
+        if best_score > 0.6:
+            return best_answer
+        return None
 
     def get_best_sentence(self, user_input):
-        return get_best_sentence(user_input, self.sentences, self.nlp)
+        """
+        Fallback method for finding the best matching sentence from the general text.
+        """
+        if not self.sentences:
+            return None
+        user_doc = self.nlp(user_input)  #this function provides the NLP preprocessing and vectorization, using spaCy's "en_core_web_md" model
+        best_score = 0.0
+        best_sentence = None
+        for sentence in self.sentences:
+            sentence_doc = self.nlp(sentence)
+            score = user_doc.similarity(sentence_doc)
+            if score > best_score:
+                best_score = score
+                best_sentence = sentence
+        if best_score > 0.6:
+            return best_sentence
+        return None
 
     def respond(self, user_input):
         # Check for exit commands

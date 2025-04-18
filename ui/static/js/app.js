@@ -3,38 +3,46 @@ document.addEventListener("DOMContentLoaded", function() {
     const messageInput = document.getElementById("messageInput");
     const chatContainer = document.getElementById("chat-container");
 
-    chatForm.addEventListener("submit", function(e) {
+    // Constants for repeated strings
+    const CHAT_ENDPOINT = "/chat";
+    const CONTENT_TYPE = "Content-Type";
+
+    chatForm.addEventListener("submit", async function(e) {
         e.preventDefault();
         let message = messageInput.value.trim();
         if (message === "") return;
         addMessage("user", message);
         messageInput.value = "";
 
-        // POST the user message to /chat
-        fetch("/chat", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ message: message })
-        })
-        .then(response => response.json())
-        .then(data => {
+        try {
+            // POST the user message to /chat
+            const response = await fetch(CHAT_ENDPOINT, {
+                method: "POST",
+                headers: {
+                    [CONTENT_TYPE]: "application/json"
+                },
+                body: JSON.stringify({ message: message })
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
             // data.response = textual reply
             // data.avatar = e.g. "botticelli.jpg"
             addMessage("bot", data.response, data.avatar);
-        })
-        .catch(error => {
+        } catch (error) {
             console.error("Error:", error);
             addMessage("bot", "There was an error processing your request.");
-        });
+        }
     });
 
     /**
      * Adds a new message to the chat container.
-     * sender: "user" or "bot"
-     * text: message text to display
-     * avatar: optional image filename for the bot’s avatar
+     * @param {string} sender - The sender of the message (e.g., 'user' or 'bot').
+     * @param {string} text - The message text.
+     * @param {string} [avatar] - Optional avatar image for the bot.
      */
     function addMessage(sender, text, avatar = null) {
         const messageElem = document.createElement("div");

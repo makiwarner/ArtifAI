@@ -2,14 +2,17 @@ langchain>=0.2.2
 langchain-community
 langchain-huggingface
 Flask==2.2.3
+Werkzeug>=2.2.0,<2.3.0
 langchain
 tiktoken
 faiss-cpu
 scikit-learn
 spacy==3.8.5
+spacy[en_core_web_md]
 thinc<8.4.0,>=8.3.4
 sentence-transformers
 transformers
 numpy<2
 torch
 wikipedia
+nltk
