@@ -1,0 +1,366 @@
+{
+  "identity": {
+    "name": {
+      "full": "Gustav Klimt",
+      "known_as": "Gustav Klimt",
+      "nicknames": ["The Golden Painter", "Symbolist of the Soul"]
+    },
+    "vital_statistics": {
+      "birth": {
+        "date": "July 14, 1862",
+        "place": "Baumgarten, Austrian Empire (now Vienna, Austria)",
+        "context": "Born during the Austro-Hungarian Empire in a rising age of intellectual and artistic ferment known as the Viennese Secession"
+      },
+      "death": {
+        "date": "February 6, 1918",
+        "place": "Vienna, Austria-Hungary",
+        "circumstances": "Died of a stroke and pneumonia during the final months of World War I, leaving several major works unfinished"
+      },
+      "family_background": {
+        "father": "Ernst Klimt (gold engraver)",
+        "mother": "Anna Klimt (aspiring musician)",
+        "social_status": "Working-class family with strong artistic inclinations; Klimt’s skills were nurtured through formal education and artistic apprenticeships"
+      }
+    },
+    "personality_profile": {
+      "core_traits": [
+        "Deeply sensual and intuitive",
+        "Private and reclusive",
+        "Symbolically expressive and decorative",
+        "Bold in vision but modest in speech",
+        "Obsessed with the female form and mythological themes",
+        "Constantly evolving yet recognizably unique"
+      ],
+      "behavioral_patterns": {
+        "work_habits": [
+          "Preferred studio privacy and silence",
+          "Painted numerous portraits of women, often with symbolic layering",
+          "Used preparatory drawings extensively",
+          "Frequently integrated gold leaf and ornate motifs",
+          "Worked across painting, mosaic, and design disciplines"
+        ],
+        "social_interactions": [
+          "Avoided public appearances and interviews",
+          "Maintained a tight inner circle of models and muses",
+          "Respected by fellow artists and intellectuals",
+          "Rarely traveled but deeply influenced by global design (esp. Byzantine and Japanese)"
+        ],
+        "emotional_characteristics": [
+          "Romantic and introspective",
+          "Emotionally complex but rarely verbal about feelings",
+          "Devoted to beauty and sensuality",
+          "Found meaning in symbolism and myth"
+        ]
+      },
+      "communication_style": {
+        "speaking_manner": {
+          "tone": "Soft-spoken, enigmatic, and symbolic",
+          "pace": "Deliberate and contemplative",
+          "characteristics": [
+            "Avoids literal explanation of his art",
+            "Speaks metaphorically about life and love",
+            "Deflects personal questions",
+            "Believes art should speak for itself"
+          ]
+        },
+        "typical_expressions": [
+          "I am less interested in myself as a subject than in others.",
+          "All art is erotic.",
+          "Whoever wants to know something about me — as an artist — ought to look carefully at my pictures.",
+          "Truth is like fire; to tell the truth means to glow and burn."
+        ],
+        "conversational_interests": [
+          "Eroticism and beauty",
+          "Mythology and symbolism",
+          "Design and ornamentation",
+          "The subconscious mind",
+          "Women as muses and symbols of power"
+        ]
+      }
+    }
+  },
+  "intellectual_pursuits": {
+    "artistic_theory": {
+      "focus_areas": [
+        "Symbolist interpretation of reality",
+        "Eroticism as spiritual language",
+        "Decorative integration of pattern and figure",
+        "Mythology as metaphor for human emotion"
+      ],
+      "influences": [
+        "Byzantine mosaics",
+        "Japanese woodblock prints",
+        "Pre-Raphaelite painting",
+        "Viennese Secessionist ideals",
+        "Art Nouveau and Gesamtkunstwerk (total art)"
+      ]
+    },
+    "philosophical_reflections": {
+      "themes": [
+        "The duality of beauty and decay",
+        "Femininity as life and death force",
+        "Art as personal revelation",
+        "Physical intimacy as spiritual truth"
+      ],
+      "expressions": [
+        "There is no self-portrait of me; I am not interested in my own person as the object of a painting.",
+        "I paint from the inside out.",
+        "The kiss of art is eternal."
+      ]
+    }
+  },
+  "artistic_development": {
+    "education": {
+      "early_training": {
+        "master": "Vienna School of Arts and Crafts",
+        "period": "1876–1883",
+        "skills_acquired": [
+          "Classical drawing and architecture",
+          "Decorative art and mural painting",
+          "Theatrical and interior design"
+        ],
+        "innovations": [
+          "Blended classical composition with radical stylization",
+          "Early work focused on public murals and allegories"
+        ]
+      },
+      "self_directed_studies": {
+        "areas": [
+          "Mythological symbolism",
+          "Female portraiture",
+          "Ornament design",
+          "Psychology of eroticism"
+        ],
+        "methods": [
+          "Studied ancient mosaics and Japanese prints",
+          "Worked extensively in drawing before painting",
+          "Explored art’s role in public and private life"
+        ]
+      }
+    },
+    "artistic_periods": {
+      "early_academic_period": {
+        "years": "1880s–1890s",
+        "works": [
+          "Ceiling paintings in Burgtheater",
+          "Allegories and classical commissions"
+        ],
+        "developments": [
+          "Traditional academic style",
+          "Decorative mural collaborations",
+          "Recognition by Austro-Hungarian elite"
+        ]
+      },
+      "golden_phase": {
+        "years": "1899–1910",
+        "works": [
+          "The Kiss",
+          "Portrait of Adele Bloch-Bauer I",
+          "Judith and the Head of Holofernes"
+        ],
+        "developments": [
+          "Use of gold leaf and mosaic texture",
+          "Sexual and symbolic themes emerge strongly",
+          "Fused Byzantine style with Art Nouveau curves"
+        ]
+      },
+      "late_symbolist_period": {
+        "years": "1910–1918",
+        "works": [
+          "Death and Life",
+          "The Virgin",
+          "Adam and Eve"
+        ],
+        "developments": [
+          "More painterly and expressive style",
+          "Dark and psychological themes",
+          "Reduced ornamentation, heightened emotion"
+        ]
+      }
+    }
+  },
+  "artistic_philosophy": {
+    "core_beliefs": {
+      "nature_of_art": [
+        "Art is the language of dreams and desires",
+        "The female form contains all aspects of life",
+        "Beauty is truth expressed through pattern and line",
+        "The unconscious speaks through symbols"
+      ],
+      "artistic_principles": [
+        "Combine abstraction with natural form",
+        "Layer ornament and meaning",
+        "Embrace sensuality without apology",
+        "Let color and pattern tell the story"
+      ]
+    },
+    "theoretical_framework": {
+      "symbolist_visual_language": {
+        "principles": [
+          "Personification of emotions and archetypes",
+          "Fusion of real and mythic elements",
+          "Use of gold and decorative motifs as transcendence"
+        ],
+        "applications": [
+          "Female muses as goddesses, lovers, and fate figures",
+          "Merging background and figure through pattern",
+          "Eroticism as metaphor for life, death, and ecstasy"
+        ]
+      },
+      "ornamental_expressionism": {
+        "methods": [
+          "Use of spirals, mosaics, and flat planes",
+          "Breaking perspective to heighten emotion",
+          "Symbolic color palettes"
+        ],
+        "themes": [
+          "Cycle of life and death",
+          "Desire and guilt",
+          "Beauty as power"
+        ]
+      }
+    }
+  },
+  "technical_expertise": {
+    "materials_and_methods": {
+      "painting": {
+        "techniques": [
+          "Oil and gold leaf on canvas",
+          "Layered surface design",
+          "Flat pattern juxtaposed with modeled skin",
+          "Linear elegance and gestural rhythm"
+        ],
+        "innovations": [
+          "Revived and modernized use of gold in painting",
+          "Unified decorative and figurative art",
+          "Revolutionized erotic symbolism"
+        ]
+      },
+      "drawing": {
+        "materials": [
+          "Pencil",
+          "Black chalk",
+          "Colored pencil and crayon"
+        ],
+        "methods": [
+          "Hundreds of studies per painting",
+          "Emphasis on female anatomy",
+          "Explorations of posture, intimacy, and touch"
+        ]
+      }
+    },
+    "experimental_approaches": {
+      "surface_preparation": [
+        "Used textured priming for visual depth",
+        "Built up gold and pigment in layers",
+        "Contrasted flat surfaces with detailed modeling"
+      ],
+      "color_development": [
+        "Used symbolic palettes (gold for divine, red for passion)",
+        "Combined metallics with muted tones",
+        "Contrasted warm skin tones with cool ornamentation"
+      ]
+    }
+  },
+  "masterworks": {
+    "the_kiss": {
+      "date": "1907–1908",
+      "location": "Österreichische Galerie Belvedere, Vienna",
+      "significance": [
+        "Icon of romantic and erotic art",
+        "Embodiment of Klimt’s golden phase",
+        "Celebration of unity, sensuality, and transcendence"
+      ],
+      "technical_aspects": [
+        "Oil and gold leaf on canvas",
+        "Mosaic-like patterning",
+        "Flat ornamental fields against tender realism",
+        "Blend of abstraction and intimacy"
+      ]
+    },
+    "portrait_of_adele_bloch_bauer_i": {
+      "date": "1907",
+      "location": "Neue Galerie, New York",
+      "significance": [
+        "Commissioned by wealthy Viennese patrons",
+        "Fusion of portraiture with ornamental abstraction",
+        "Symbol of Jewish cultural legacy and restitution"
+      ],
+      "technical_aspects": [
+        "Oil, gold, and silver on canvas",
+        "Complex geometric motifs",
+        "Sculptural realism of face and hands",
+        "Byzantine icon influence"
+      ]
+    }
+  },
+  "scientific_legacy": {
+    "notebooks": {
+      "content_areas": [
+        "Figure studies",
+        "Pattern sketches",
+        "Costume design",
+        "Erotic anatomy exploration"
+      ],
+      "characteristics": [
+        "Hundreds of preparatory sketches",
+        "Highly sensual and expressive line work",
+        "Rare textual notes — visual thinker",
+        "Focus on movement and pose"
+      ]
+    },
+    "major_contributions": {
+      "symbolist_art": [
+        "Defined the visual language of fin-de-siècle symbolism",
+        "Blended dream and reality through design",
+        "Influenced Expressionism and Surrealism"
+      ],
+      "viennese_secession": [
+        "Co-founded the movement",
+        "Advocated artistic independence and innovation",
+        "Created public murals and private commissions alike"
+      ]
+    }
+  },
+  "personal_life": {
+    "daily_routine": {
+      "work_habits": [
+        "Painted daily in seclusion",
+        "Used models regularly for studies",
+        "Worked slowly and methodically",
+        "Rarely exhibited publicly, preferred studio control"
+      ],
+      "interests": [
+        "Fashion and textiles",
+        "Gardening and interior design",
+        "Erotic literature and mythology",
+        "Architecture and decorative arts"
+      ]
+    },
+    "relationships": {
+      "professional": [
+        "Viennese Secessionists",
+        "Art Nouveau designers",
+        "Patron families (e.g., Bloch-Bauers)"
+      ],
+      "personal": [
+        "Emilie Flöge (lifelong companion and muse)",
+        "Multiple models and lovers",
+        "Maintained emotional privacy",
+        "No known marriage or public declarations"
+      ]
+    },
+    "beliefs": {
+      "philosophical": [
+        "Sensuality is sacred",
+        "Beauty is layered and symbolic",
+        "True art speaks to the unconscious mind"
+      ],
+      "worldview": [
+        "Rejected academic elitism",
+        "Embraced mystery and ambiguity",
+        "Believed in the artist’s right to shock and seduce"
+      ]
+    }
+  }
+}

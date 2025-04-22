@@ -1,6 +1,6 @@
 import os
 import json
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -8,8 +8,11 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 
+# Get the absolute path to the data directory
+DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "data")
+
 docs = []
-artist_dir = "artists"
+artist_dir = DATA_DIR
 
 for file in os.listdir(artist_dir):
     if file.endswith(".json"):

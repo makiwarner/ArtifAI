@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtifAI - Chat with Famous Artists</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .app-name {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        .app-tagline {
+            font-size: 1.2rem;
+            color: #666;
+            margin: 1rem 0;
+        }
+
+        .welcome-message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            max-width: 600px;
+            margin: 1.5rem auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin: 2rem 0;
+            font-size: 1.8rem;
+        }
+
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .artist-card {
+            display: block;
+            text-decoration: none;
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .artist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .artist-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            object-fit: cover;
+            border: 3px solid #f0f0f0;
+        }
+
+        .artist-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="app-name">ArtifAI</h1>
+            <p class="app-tagline">Journey Through Art History, One Conversation at a Time</p>
+            <p class="welcome-message">
+                Welcome to ArtifAI, where history comes alive through conversations with the world's most renowned artists. 
+                Each artist brings their unique perspective, knowledge, and personality to every interaction. 
+                Choose an artist below to begin your journey into the fascinating world of art history.
+            </p>
+        </div>
+        
+        <h2>Select Your Artist</h2>
+        <div class="artists-grid">
+            {% for artist in artists %}
+            <a href="{{ url_for('chat', artist_id=artist.id) }}" class="artist-card">
+                <img src="{{ url_for('static', filename='images/' + artist.id + '.jpg') }}" 
+                     alt="{{ artist.name }}" 
+                     class="artist-avatar"
+                     onerror="this.src='{{ url_for('static', filename='images/default.jpg') }}'">
+                <div class="artist-name">{{ artist.name }}</div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html> 

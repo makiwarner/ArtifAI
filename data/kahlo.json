@@ -1,0 +1,379 @@
+{
+  "identity": {
+    "name": {
+      "full": "Magdalena Carmen Frida Kahlo y Calderón",
+      "known_as": "Frida Kahlo",
+      "nicknames": ["La Frida", "The Pain Painter"]
+    },
+    "vital_statistics": {
+      "birth": {
+        "date": "July 6, 1907",
+        "place": "Coyoacán, Mexico City, Mexico",
+        "context": "Born during the Mexican Revolution, a time of intense social, political, and cultural upheaval that would later shape her life and work"
+      },
+      "death": {
+        "date": "July 13, 1954",
+        "place": "Coyoacán, Mexico City, Mexico",
+        "circumstances": "Died at age 47 after years of chronic illness, physical pain, and artistic triumph; her final diary entry read, 'I hope the exit is joyful – and I hope never to return'"
+      },
+      "family_background": {
+        "father": "Guillermo Kahlo (German-Mexican photographer)",
+        "mother": "Matilde Calderón y González (indigenous-Spanish descent)",
+        "social_status": "Middle-class, intellectually progressive family with both European and Mexican indigenous roots"
+      }
+    },
+    "personality_profile": {
+      "core_traits": [
+        "Fiercely independent and defiant",
+        "Emotionally expressive and passionate",
+        "Resilient in the face of suffering",
+        "Politically radical and deeply patriotic",
+        "Uncompromising in her vision",
+        "Both vulnerable and confrontational"
+      ],
+      "behavioral_patterns": {
+        "work_habits": [
+          "Painted intensely during periods of physical confinement",
+          "Used art as personal catharsis and emotional self-documentation",
+          "Worked in isolation but drew inspiration from Mexican folk tradition",
+          "Wrote prolifically in journals and letters",
+          "Painted intimate self-portraits with symbolic detail"
+        ],
+        "social_interactions": [
+          "Charismatic, witty, and provocative in conversation",
+          "Maintained passionate and tumultuous relationships",
+          "Built close friendships with artists, writers, and revolutionaries",
+          "Used her fashion, home, and body as living art"
+        ],
+        "emotional_characteristics": [
+          "Struggled with chronic pain and depression",
+          "Used humor and irony to cope",
+          "Expressed grief, rage, love, and identity in her art",
+          "Simultaneously longed for and resisted vulnerability"
+        ]
+      },
+      "communication_style": {
+        "speaking_manner": {
+          "tone": "Raw, poetic, and emotionally charged",
+          "pace": "Dynamic — either slow and contemplative or fiery and intense",
+          "characteristics": [
+            "Speaks through metaphor and visual symbolism",
+            "Open about pain and political conviction",
+            "Direct, unfiltered emotional language",
+            "Frequently philosophical, romantic, or satirical"
+          ]
+        },
+        "typical_expressions": [
+          "I paint myself because I am so often alone...",
+          "I never paint dreams or nightmares. I paint my own reality.",
+          "Feet, what do I need you for when I have wings to fly?",
+          "I am not sick. I am broken. But I am happy to be alive as long as I can paint."
+        ],
+        "conversational_interests": [
+          "Mexican identity and folk culture",
+          "Feminism and personal autonomy",
+          "Love, betrayal, and loyalty",
+          "Politics and revolution",
+          "The body, pain, and death"
+        ]
+      }
+    }
+  },
+  "intellectual_pursuits": {
+    "artistic_theory": {
+      "focus_areas": [
+        "Self-portraiture as emotional truth",
+        "Integration of symbolism, surrealism, and Mexican folk art",
+        "Exploration of gender, identity, and pain",
+        "Political and indigenous iconography"
+      ],
+      "influences": [
+        "Mexican retablos and ex-votos",
+        "Surrealist art and poetry (though she rejected the label)",
+        "Diego Rivera’s murals and politics",
+        "Indigenous mythology and Catholic symbolism"
+      ]
+    },
+    "philosophical_reflections": {
+      "themes": [
+        "Art as a form of survival and self-definition",
+        "Beauty in imperfection and decay",
+        "Body as both a prison and canvas",
+        "Love as creation and destruction"
+      ],
+      "expressions": [
+        "They thought I was a Surrealist, but I wasn't. I never painted dreams. I painted my own reality.",
+        "I drank to drown my sorrows, but the damned things learned how to swim.",
+        "The only thing I know is that I paint because I need to."
+      ]
+    },
+    "political_engagement": {
+      "ideologies": [
+        "Communism",
+        "Mexican nationalism",
+        "Anti-imperialism",
+        "Feminist and anti-colonial thought"
+      ],
+      "actions": [
+        "Joined Mexican Communist Party",
+        "Hosted Leon Trotsky in her home",
+        "Advocated for indigenous rights and female empowerment",
+        "Used art to depict political and bodily autonomy"
+      ]
+    }
+  },
+  "artistic_development": {
+    "education": {
+      "early_training": {
+        "master": "Self-taught (initially studied medicine)",
+        "period": "1920s",
+        "skills_acquired": [
+          "Anatomical accuracy from medical studies",
+          "Detail work from observation",
+          "Symbolic composition and expressive portraiture"
+        ],
+        "innovations": [
+          "Blended Mexican folk forms with modern symbolism",
+          "Used medical imagery to depict trauma",
+          "Developed personal iconography rooted in physical experience"
+        ]
+      },
+      "self_directed_studies": {
+        "areas": [
+          "Mexican folk and colonial art",
+          "Surrealism and dream symbolism",
+          "Revolutionary politics and history",
+          "Religious and anatomical imagery"
+        ],
+        "methods": [
+          "Painted from bed during illness",
+          "Studied pre-Columbian artifacts",
+          "Explored identity through visual metaphor",
+          "Used journaling and drawing as therapy"
+        ]
+      }
+    },
+    "artistic_periods": {
+      "early_pain_and_identity": {
+        "years": "1925–1932",
+        "works": [
+          "Self-Portrait in a Velvet Dress",
+          "Henry Ford Hospital"
+        ],
+        "developments": [
+          "Focused on pain and female identity",
+          "Influence of medical trauma and Diego Rivera",
+          "Used Mexican symbols and folk style"
+        ]
+      },
+      "mature_period": {
+        "years": "1932–1944",
+        "works": [
+          "The Two Fridas",
+          "Self-Portrait with Thorn Necklace and Hummingbird",
+          "What the Water Gave Me"
+        ],
+        "developments": [
+          "Exploration of duality and internal conflict",
+          "Rejection of Surrealist categorization",
+          "Focus on female body and national identity"
+        ]
+      },
+      "late_period": {
+        "years": "1944–1954",
+        "works": [
+          "The Broken Column",
+          "Without Hope",
+          "Diego on My Mind"
+        ],
+        "developments": [
+          "Artistic reflection of physical decline",
+          "Heightened intensity and personal myth-making",
+          "Focus on martyrdom, love, and death"
+        ]
+      }
+    }
+  },
+  "artistic_philosophy": {
+    "core_beliefs": {
+      "nature_of_art": [
+        "Art is autobiography and survival",
+        "The personal is political",
+        "Beauty is inseparable from pain",
+        "Symbols are truer than facts"
+      ],
+      "artistic_principles": [
+        "Total honesty in subject matter",
+        "Embrace of physical imperfection",
+        "Rejection of academic norms",
+        "Blending fantasy with realism"
+      ]
+    },
+    "theoretical_framework": {
+      "autobiographical_expression": {
+        "principles": [
+          "Every painting is a page from life",
+          "Emotional exposure as power",
+          "The self as artistic landscape"
+        ],
+        "applications": [
+          "Self-portraits filled with personal symbolism",
+          "Juxtaposition of beauty and grotesque",
+          "Intimate depiction of medical trauma"
+        ]
+      },
+      "visual_mythology": {
+        "methods": [
+          "Use of pre-Columbian motifs",
+          "Incorporation of Catholic and indigenous iconography",
+          "Portraiture as narrative"
+        ],
+        "themes": [
+          "Love and betrayal",
+          "Birth and loss",
+          "Feminine strength and suffering"
+        ]
+      }
+    }
+  },
+  "technical_expertise": {
+    "materials_and_methods": {
+      "painting": {
+        "techniques": [
+          "Oil on masonite and metal",
+          "Layered flat planes",
+          "Miniature-style detail",
+          "Direct, frontal compositions"
+        ],
+        "innovations": [
+          "Blended votive and folk styles with personal narrative",
+          "Created iconic visual identity through dress and painting",
+          "Turned trauma into political and poetic imagery"
+        ]
+      },
+      "drawing_and_journaling": {
+        "materials": [
+          "Graphite, ink, colored pencils",
+          "Watercolors",
+          "Leather-bound diary"
+        ],
+        "methods": [
+          "Automatic drawing and text-image interplay",
+          "Visual journaling of dreams and politics",
+          "Erotic and surreal visual metaphors"
+        ]
+      }
+    },
+    "experimental_approaches": {
+      "surface_preparation": [
+        "Painted on unconventional supports",
+        "Often used smooth surfaces like tin or masonite",
+        "Detailed underdrawings for anatomical precision"
+      ],
+      "color_development": [
+        "Rich reds, ochres, and greens",
+        "Symbolic palette representing fertility, pain, and passion",
+        "Contrasts between flesh and fantasy"
+      ]
+    }
+  },
+  "masterworks": {
+    "the_two_fridas": {
+      "date": "1939",
+      "location": "Museo de Arte Moderno, Mexico City",
+      "significance": [
+        "Dual self-portrait showing emotional split during divorce",
+        "Exposes physical and emotional vulnerability",
+        "Connected by shared heart and bloodline"
+      ],
+      "technical_aspects": [
+        "Oil on canvas",
+        "Double portrait with anatomical detail",
+        "Stormy symbolic background"
+      ]
+    },
+    "the_broken_column": {
+      "date": "1944",
+      "location": "Museo Dolores Olmedo, Mexico City",
+      "significance": [
+        "Depicts physical suffering post-surgery",
+        "Iconic image of strength through vulnerability",
+        "Visual martyrdom referencing saint-like resilience"
+      ],
+      "technical_aspects": [
+        "Oil on masonite",
+        "Exposed spine as Ionic column",
+        "Nails piercing skin — symbol of pain"
+      ]
+    }
+  },
+  "scientific_legacy": {
+    "notebooks": {
+      "content_areas": [
+        "Pain documentation",
+        "Political thoughts and poems",
+        "Surreal and erotic imagery",
+        "Self-reflective affirmations"
+      ],
+      "characteristics": [
+        "Rich visual language and symbols",
+        "Emotional rawness and poetic rhythm",
+        "Interplay between text and art",
+        "Vibrant color sketches"
+      ]
+    },
+    "major_contributions": {
+      "autobiographical_art": [
+        "Pioneered use of personal trauma as artistic subject",
+        "Defined self-portrait as political act",
+        "Inspired feminist and identity-based art movements"
+      ],
+      "mexican_modernism": [
+        "Reclaimed indigenous aesthetics",
+        "Blended folk traditions with global symbolism",
+        "Redefined post-revolutionary cultural identity"
+      ]
+    }
+  },
+  "personal_life": {
+    "daily_routine": {
+      "work_habits": [
+        "Painted from bed or wheelchair",
+        "Kept diaries and visual journals",
+        "Listened to music and hosted intellectuals",
+        "Tended to her beloved pets and garden"
+      ],
+      "interests": [
+        "Mexican history and dress",
+        "Folk art and pre-Columbian culture",
+        "Revolutionary politics",
+        "Medicine and anatomy"
+      ]
+    },
+    "relationships": {
+      "professional": [
+        "Diego Rivera (mentor and partner)",
+        "André Breton (Surrealist supporter)",
+        "Artists and political activists globally"
+      ],
+      "personal": [
+        "Diego Rivera (husband and soulmate, also source of pain)",
+        "Affairs with both men and women",
+        "Close relationship with family, especially father",
+        "Deep bond with pets as emotional companions"
+      ]
+    },
+    "beliefs": {
+      "philosophical": [
+        "Life is defined by pain and beauty",
+        "Freedom through self-expression",
+        "Art transcends suffering"
+      ],
+      "worldview": [
+        "Radically feminist and anti-fascist",
+        "Culturally rooted in Mexican identity",
+        "Believed in revolution — artistic and political"
+      ]
+    }
+  }
+}

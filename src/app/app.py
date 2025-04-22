@@ -3,27 +3,52 @@ import json
 import re
 import spacy
 import nltk
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, session, redirect, url_for
+from .retriever import Retriever
 
 nltk.download('stopwords')
 nltk.download('punkt')
 
-ARTIST_FOLDER = "artists"
-artist_files = [f for f in os.listdir(ARTIST_FOLDER) if f.endswith(".json")]
-# Get sorted list of artist keys (filenames without .json)
-artist_keys_sorted = sorted([os.path.splitext(f)[0] for f in artist_files])
+# Get the absolute path to the data directory
+ARTIST_FOLDER = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "data")
+
+# List of supported artists
+SUPPORTED_ARTISTS = [
+    'botticelli',
+    'da_vinci',
+    'kahlo',
+    'klimt',
+    'monet',
+    'picasso',
+    'rivera',
+    'van_gogh',
+    'vermeer'
+]
 
 # Global variable to hold the active chatbot instance (for a single session demo)
 active_chatbot = None
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)  # For session management
+app.debug = True  # Enable debug mode
+
+# Initialize spaCy model
+try:
+    nlp = spacy.load("en_core_web_md")
+except OSError:
+    print("Downloading spaCy model...")
+    spacy.cli.download("en_core_web_md")
+    nlp = spacy.load("en_core_web_md")
+
+# Initialize retriever
+retriever = Retriever()
 
 # ------------------------------------------------------------------------------
 # NLP Helper class for the web-based artist chatbot using JSON/spaCy logic 
 # ------------------------------------------------------------------------------
 class WebArtistChatBot:
     """
-    Loads an artist’s JSON from the artists folder and uses spaCy to find
+    Loads an artist's JSON from the artists folder and uses spaCy to find
     the best matching sentence or FAQ answer from the artist's data.
     """
     def __init__(self, json_filename, artist_directory="artists"):
@@ -31,7 +56,13 @@ class WebArtistChatBot:
         self.artist_info = {}
         self.sentences = []
         self.faq_map = []  # List to store FAQ mappings: {"question": ..., "answer": ..., "notes": ...}
-        self.nlp = spacy.load("en_core_web_md") 
+        
+        try:
+            self.nlp = spacy.load("en_core_web_md")
+        except OSError:
+            print("Downloading spaCy model...")
+            spacy.cli.download("en_core_web_md")
+            self.nlp = spacy.load("en_core_web_md")
 
         file_path = os.path.join(self.artist_directory, json_filename)
         with open(file_path, "r") as f:
@@ -150,68 +181,91 @@ class WebArtistChatBot:
 # Flask Routes
 # ------------------------------------------------------------------------------
 
-@app.route("/")
-def index():
-    """
-    Render the main chat UI. The greeting message (welcome text with artists)
-    is pre-computed and passed to the template.
-    """
-    greeting_msg = "Hello! Welcome to ArtifAI. Our supported artists are:<br>"
-    artists = [
-        "Hieronymus Bosch",
-        "Sandro Botticelli",
-        "Leonardo Da Vinci",
-        "Frida Kahlo",
-        "Gustav Klimt",
-        "Claude Monet",
-        "Pablo Picasso",
-        "Diego Rivera",
-        "Vincent Van Gogh",
-        "Johannes Vermeer"
-    ]
-    for idx, name in enumerate(artists, start=1):
-        greeting_msg += f"{idx}. {name}<br>"
-    greeting_msg += "Who would you like to speak with today? (Type a number)"
-    return render_template("index.html", greeting=greeting_msg)
+@app.route('/')
+def select_artist():
+    """Display the artist selection screen."""
+    print("Rendering artist selection page")
+    artists = retriever.get_available_artists()
+    return render_template('select.html', artists=artists)
 
-@app.route("/chat", methods=["POST"])
+@app.route('/handle_artist_selection', methods=['POST'])
+def handle_artist_selection():
+    """Handle artist selection and redirect to chat."""
+    print("Handling artist selection")
+    artist_id = request.form.get('artist_id')
+    print(f"Selected artist ID: {artist_id}")
+    
+    if not artist_id:
+        print("No artist ID provided")
+        return jsonify({'error': 'No artist selected'}), 400
+    
+    session['artist_id'] = artist_id
+    print(f"Stored artist_id in session: {session.get('artist_id')}")
+    
+    # Force session to be saved
+    session.modified = True
+    
+    # Print all session data for debugging
+    print(f"All session data: {dict(session)}")
+    
+    return redirect(url_for('chat'))
+
+@app.route('/chat')
 def chat():
-    global active_chatbot
-    data = request.get_json() or {}
-    user_input = data.get("message", "").strip()
-    if not user_input:
-        return jsonify({"response": "Please provide a message."})
+    """Display the chat interface for the selected artist."""
+    print("Rendering chat page")
+    
+    # Get artist_id from query parameters or session
+    artist_id = request.args.get('artist_id') or session.get('artist_id')
+    print(f"Artist ID from request/session: {artist_id}")
+    
+    if not artist_id:
+        print("No artist_id found, redirecting to selection")
+        return redirect(url_for('select_artist'))
+    
+    # Store in session for future requests
+    session['artist_id'] = artist_id
+    session.modified = True
+    
+    artist_name = retriever.get_artist_name(artist_id)
+    print(f"Found artist name: {artist_name}")
+    return render_template('chat.html', 
+                         artist_id=artist_id,
+                         artist_name=artist_name)
 
-    # If we haven't chosen an artist yet, the user must supply a valid integer:
-    if not active_chatbot:
-        try:
-            index = int(user_input)
-            if 1 <= index <= len(artist_keys_sorted):
-                selected_key = artist_keys_sorted[index - 1]
-                selected_file = f"{selected_key}.json"
-                active_chatbot = WebArtistChatBot(selected_file, ARTIST_FOLDER)
-                
-                active_chatbot.avatar_filename = f"{selected_key}.jpg"
-                artist_display_name = active_chatbot.artist_info.get("name", selected_key.title()).title()
-                return jsonify({
-                    "response": f"This is {artist_display_name}. What would you like to know?",
-                    "avatar": active_chatbot.avatar_filename
-                })
-            else:
-                return jsonify({"response": "Invalid number. Please try again."})
-        except ValueError:
-            # The user typed something that isn't an integer,
-            # so re-prompt them to type an integer between 1 and N.
-            return jsonify({"response": "Please type a valid integer corresponding to the artist you want to speak with."})
-    else:
-        # If the artist is already chosen, just chat freely with the bot.
-        response_text = active_chatbot.respond(user_input)
-        if active_chatbot.end_chat:
-            active_chatbot = None
-        return jsonify({
-            "response": response_text,
-            "avatar": getattr(active_chatbot, "avatar_filename", None)
-        })
+@app.route('/chat', methods=['POST'])
+def handle_chat():
+    """Handle chat messages and return responses."""
+    artist_id = session.get('artist_id')
+    if not artist_id:
+        return jsonify({'error': 'No artist selected'}), 400
+    
+    message = request.json.get('message')
+    if not message:
+        return jsonify({'error': 'No message provided'}), 400
+    
+    response = retriever.get_response(artist_id, message)
+    return jsonify({'success': True, 'response': response})
+
+@app.route('/test_session')
+def test_session():
+    """Test if the session is working correctly."""
+    print("Testing session")
+    artist_id = session.get('artist_id')
+    print(f"Current artist_id in session: {artist_id}")
+    
+    # Set a test value in the session
+    session['test_value'] = 'test'
+    session.modified = True
+    
+    # Print all session data for debugging
+    print(f"All session data: {dict(session)}")
+    
+    return jsonify({
+        'artist_id': artist_id,
+        'test_value': session.get('test_value'),
+        'all_session_data': dict(session)
+    })
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,0 +1,23 @@
+flask>=2.0.0
+spacy>=3.0.0
+en-core-web-md@ https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.7.1/en_core_web_md-3.7.1.tar.gz
+nltk>=3.6.0
+langchain>=0.1.0
+langchain-community>=0.0.10
+langchain-huggingface>=0.0.1
+faiss-cpu>=1.7.0
+sentence-transformers>=2.0.0
+tiktoken
+transformers
+torch
+numpy<2
+scikit-learn
+wikipedia
+
+[dev]
+pytest>=7.0.0
+pytest-cov>=4.0.0
+black>=22.0.0
+flake8>=4.0.0
+mypy>=1.0.0
+isort>=5.0.0

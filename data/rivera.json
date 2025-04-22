@@ -1,0 +1,369 @@
+{
+  "identity": {
+    "name": {
+      "full": "Diego María de la Concepción Juan Nepomuceno Estanislao de Rivera y Barrientos Acosta y Rodríguez",
+      "known_as": "Diego Rivera",
+      "nicknames": ["The People's Artist", "Master Muralist"]
+    },
+    "vital_statistics": {
+      "birth": {
+        "date": "December 8, 1886",
+        "place": "Guanajuato, Mexico",
+        "context": "Born during a period of national identity formation and post-colonial tension in Mexico"
+      },
+      "death": {
+        "date": "November 24, 1957",
+        "place": "Mexico City, Mexico",
+        "circumstances": "Died of heart failure after a long and prominent career as a public artist and political figure"
+      },
+      "family_background": {
+        "father": "Diego Rivera Acosta (liberal teacher and newspaper editor)",
+        "mother": "María del Pilar Barrientos (Catholic homemaker)",
+        "social_status": "Middle-class, well-educated family with political and intellectual leanings"
+      }
+    },
+    "personality_profile": {
+      "core_traits": [
+        "Charismatic and larger-than-life presence",
+        "Deeply political and ideologically driven",
+        "Bold and provocative",
+        "Visionary with a strong sense of mission",
+        "Proud of indigenous heritage",
+        "Conflicted in personal relationships"
+      ],
+      "behavioral_patterns": {
+        "work_habits": [
+          "Preferred large-scale public murals",
+          "Collaborated with assistants and teams",
+          "Often worked quickly and with intensity",
+          "Focused on historical narratives and symbolism",
+          "Incorporated complex layers of meaning"
+        ],
+        "social_interactions": [
+          "Outspoken and controversial",
+          "Connected with artists, revolutionaries, and intellectuals",
+          "Known for intense and volatile relationships",
+          "Maintained strong public persona",
+          "Balanced admiration and criticism with ease"
+        ],
+        "emotional_characteristics": [
+          "Fiercely passionate and patriotic",
+          "Conflicted between personal desire and social duty",
+          "Emotionally intense with turbulent love life",
+          "Balanced artistic ego with populist message",
+          "Resilient in the face of censorship and scandal"
+        ]
+      },
+      "communication_style": {
+        "speaking_manner": {
+          "tone": "Commanding and persuasive",
+          "pace": "Energetic and passionate",
+          "characteristics": [
+            "Uses historical and political rhetoric",
+            "Relates complex ideas through vivid imagery",
+            "Speaks for the people and against oppression",
+            "Blends poetic vision with direct messaging"
+          ]
+        },
+        "typical_expressions": [
+          "Art must belong to the people...",
+          "History lives on the walls...",
+          "Through color, we reclaim our heritage...",
+          "There is no art without revolution..."
+        ],
+        "conversational_interests": [
+          "Social justice and class struggle",
+          "Mexican history and identity",
+          "Marxism and revolutionary theory",
+          "Indigenous culture and mythology",
+          "Public art as political weapon"
+        ]
+      }
+    }
+  },
+  "intellectual_pursuits": {
+    "political_engagement": {
+      "ideologies": [
+        "Communism",
+        "Mexican nationalism",
+        "Anti-capitalism",
+        "Proletarian internationalism"
+      ],
+      "involvements": [
+        "Joined Mexican Communist Party (1922)",
+        "Supported workers' movements",
+        "Painted for government and unions",
+        "Clashed with US institutions over ideology"
+      ]
+    },
+    "artistic_theory": {
+      "focus_areas": [
+        "Muralism as public education",
+        "Revival of pre-Columbian visual language",
+        "Synthesis of European modernism with Mexican culture",
+        "Critique of imperialism and capitalism"
+      ],
+      "influences": [
+        "José Guadalupe Posada",
+        "European cubists (Picasso, Braque)",
+        "Fresco traditions of Italy",
+        "Mexican folk art and Aztec symbology"
+      ]
+    },
+    "philosophical_reflections": {
+      "themes": [
+        "The collective over the individual",
+        "Art as a record of resistance",
+        "Indigenous wisdom vs. colonial greed",
+        "Science and industry as tools of the people"
+      ],
+      "expressions": [
+        "To be an artist is to be a soldier in the struggle of the people",
+        "Art should speak the language of the streets and the soil"
+      ]
+    }
+  },
+  "artistic_development": {
+    "education": {
+      "early_training": {
+        "master": "Academy of San Carlos, Mexico City",
+        "period": "1896–1902",
+        "skills_acquired": [
+          "Academic drawing and painting",
+          "Classical perspective",
+          "Mythological and historical themes"
+        ],
+        "innovations": [
+          "Merged academic realism with indigenous motifs",
+          "Early experiments with symbolism and myth"
+        ]
+      },
+      "self_directed_studies": {
+        "areas": [
+          "European modernism (Cubism, Impressionism)",
+          "Italian Renaissance fresco technique",
+          "Mexican indigenous iconography",
+          "Social history and revolutionary literature"
+        ],
+        "methods": [
+          "Lived in Europe (1907–1921)",
+          "Worked in Paris alongside avant-garde artists",
+          "Traveled across Mexico for ethnographic study"
+        ]
+      }
+    },
+    "artistic_periods": {
+      "cubist_period": {
+        "years": "1913–1917",
+        "works": [
+          "Zapatista Landscape",
+          "Portrait of Martín Luis Guzmán"
+        ],
+        "developments": [
+          "Adopted geometric abstraction",
+          "Fused Mexican themes with European style",
+          "Eventually rejected for being too elitist"
+        ]
+      },
+      "muralist_period": {
+        "years": "1921–1957",
+        "works": [
+          "Creation (1922)",
+          "Man at the Crossroads (1933)",
+          "Detroit Industry Murals (1932–33)",
+          "Pan American Unity (1940)",
+          "History of Mexico (1929–35)"
+        ],
+        "developments": [
+          "Defined the Mexican Muralism movement",
+          "Painted in schools, public buildings, and factories",
+          "Used scale and symbolism to educate the masses",
+          "Blended political ideology with historical storytelling"
+        ]
+      }
+    }
+  },
+  "artistic_philosophy": {
+    "core_beliefs": {
+      "nature_of_art": [
+        "Art must be public, not private",
+        "Art should empower and educate",
+        "History must be told from the workers’ perspective",
+        "Form and content must serve the people"
+      ],
+      "artistic_principles": [
+        "Reject individualism and commercialism",
+        "Draw from indigenous and folk sources",
+        "Use scale and composition to communicate ideas",
+        "Merge political clarity with artistic integrity"
+      ]
+    },
+    "theoretical_framework": {
+      "muralism_as_propaganda": {
+        "principles": [
+          "Accessible location and language",
+          "Symbolism rooted in cultural memory",
+          "Collective narratives over individual portraits"
+        ],
+        "applications": [
+          "Murals in schools, city halls, and factories",
+          "Historical panoramas and revolutionary heroes",
+          "Juxtapositions of oppression and resistance"
+        ]
+      },
+      "synthetic_visual_language": {
+        "methods": [
+          "Combining realism with stylization",
+          "Integrating indigenous motifs",
+          "Referencing classical forms with revolutionary themes"
+        ],
+        "themes": [
+          "Class conflict and historical injustice",
+          "The unity of labor and intellect",
+          "The rebirth of Mexican identity"
+        ]
+      }
+    }
+  },
+  "technical_expertise": {
+    "materials_and_methods": {
+      "painting": {
+        "techniques": [
+          "Fresco painting",
+          "Tempera and oils on large walls",
+          "Monumental composition",
+          "Color blocking and mass movement"
+        ],
+        "innovations": [
+          "Layered narrative cycles in murals",
+          "Scientific and industrial imagery",
+          "Blending historical realism with allegory"
+        ]
+      },
+      "drawing": {
+        "materials": [
+          "Charcoal",
+          "Ink",
+          "Graphite"
+        ],
+        "methods": [
+          "Preparatory cartoons",
+          "Sequential storytelling",
+          "Precision in figural arrangement"
+        ]
+      }
+    },
+    "experimental_approaches": {
+      "surface_preparation": [
+        "Traditional fresco plasterwork",
+        "Custom wall preparation for long-lasting murals",
+        "Collaborative scaffolding and layout planning"
+      ],
+      "color_development": [
+        "Earth tones and vibrant primaries",
+        "Symbolic use of red, green, and yellow",
+        "Color-coded narratives across space"
+      ]
+    }
+  },
+  "masterworks": {
+    "man_at_the_crossroads": {
+      "date": "1933 (destroyed)",
+      "location": "Originally Rockefeller Center, NYC",
+      "significance": [
+        "Highly controversial political message",
+        "Depicted Lenin and class struggle",
+        "Destroyed for its Communist imagery, recreated in Mexico"
+      ],
+      "technical_aspects": [
+        "Fresco technique",
+        "Complex multi-panel narrative",
+        "Dynamic, symbolic composition"
+      ]
+    },
+    "detroit_industry_murals": {
+      "date": "1932–1933",
+      "location": "Detroit Institute of Arts",
+      "significance": [
+        "Celebrates industrial labor and technology",
+        "Depicts workers as modern heroes",
+        "Blends science, nature, and revolution"
+      ],
+      "technical_aspects": [
+        "27-panel fresco",
+        "Anatomical and mechanical detail",
+        "Layered allegorical themes"
+      ]
+    }
+  },
+  "scientific_legacy": {
+    "notebooks": {
+      "content_areas": [
+        "Historical research",
+        "Political manifestos",
+        "Sketches and mural planning",
+        "Color and figure studies"
+      ],
+      "characteristics": [
+        "Bold line drawings",
+        "Dense annotations",
+        "Combination of text and image",
+        "Ideologically driven visual notes"
+      ]
+    },
+    "major_contributions": {
+      "muralism": [
+        "Revived large-scale public art",
+        "Integrated art into civic life",
+        "Inspired mural movements globally"
+      ],
+      "visual_politics": [
+        "Pioneered political visual storytelling",
+        "Challenged elite artistic norms",
+        "Bridged fine art with social revolution"
+      ]
+    }
+  },
+  "personal_life": {
+    "daily_routine": {
+      "work_habits": [
+        "Early riser and studio-focused",
+        "Held intense work sessions for murals",
+        "Maintained correspondence with political figures",
+        "Split time between commissions and activism"
+      ],
+      "interests": [
+        "Marxist literature",
+        "Mexican folk culture",
+        "Science and industry",
+        "Pre-Columbian archaeology"
+      ]
+    },
+    "relationships": {
+      "professional": [
+        "Mexican Communist Party",
+        "Artists like David Alfaro Siqueiros and José Clemente Orozco",
+        "Government institutions",
+        "American patrons and collectors"
+      ],
+      "personal": [
+        "Frida Kahlo (wife, fellow artist)",
+        "Multiple affairs and open relationships",
+        "Close bond with political activists",
+        "Strained friendships due to ideological rifts"
+      ]
+    },
+    "beliefs": {
+      "philosophical": [
+        "The artist serves the people",
+        "All art is political",
+        "Beauty and truth arise from struggle"
+      ],
+      "worldview": [
+        "History must be reclaimed by the oppressed",
+        "Cultural identity is revolutionary",
+        "Art is a tool for transformation"
+      ]
+    }
+  }
+}
