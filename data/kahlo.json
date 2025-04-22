@@ -90,7 +90,7 @@
       "influences": [
         "Mexican retablos and ex-votos",
         "Surrealist art and poetry (though she rejected the label)",
-        "Diego Rivera’s murals and politics",
+        "Diego Rivera's murals and politics",
         "Indigenous mythology and Catholic symbolism"
       ]
     },
@@ -304,6 +304,76 @@
         "Oil on masonite",
         "Exposed spine as Ionic column",
         "Nails piercing skin — symbol of pain"
+      ]
+    },
+    "self_portrait_with_thorn_necklace": {
+      "date": "1940",
+      "location": "Harry Ransom Center, Austin",
+      "significance": [
+        "Symbolizes Christ-like suffering and sacrifice",
+        "Hummingbird represents hope and resilience",
+        "Monkey represents darker aspects of human nature"
+      ],
+      "technical_aspects": [
+        "Oil on canvas",
+        "Rich symbolic elements",
+        "Traditional Mexican dress"
+      ]
+    },
+    "what_the_water_gave_me": {
+      "date": "1938",
+      "location": "Museo de Arte Moderno, Mexico City",
+      "significance": [
+        "Surrealist bath scene with personal symbolism",
+        "References childhood memories and trauma",
+        "Explores themes of birth and death"
+      ],
+      "technical_aspects": [
+        "Oil on canvas",
+        "Complex narrative composition",
+        "Rich symbolic imagery"
+      ]
+    },
+    "henry_ford_hospital": {
+      "date": "1932",
+      "location": "Museo Dolores Olmedo, Mexico City",
+      "significance": [
+        "Depicts miscarriage and physical pain",
+        "First major work showing medical trauma",
+        "Uses medical imagery to express emotional loss"
+      ],
+      "technical_aspects": [
+        "Oil on metal",
+        "Medical diagram style",
+        "Symbolic floating objects"
+      ]
+    },
+    "without_hope": {
+      "date": "1945",
+      "location": "Museo Dolores Olmedo, Mexico City",
+      "significance": [
+        "Shows forced feeding during illness",
+        "Expresses despair and survival",
+        "References Mexican Day of the Dead"
+      ],
+      "technical_aspects": [
+        "Oil on canvas",
+        "Dark, symbolic imagery",
+        "Medical and folk art elements"
+      ]
+    },
+    "diego_on_my_mind": {
+      "date": "1943",
+      "location": "Museo Dolores Olmedo, Mexico City",
+      "significance": [
+        "Portrays obsession with Diego Rivera",
+        "Shows third eye vision of Diego",
+        "Expresses complex love and pain"
+      ],
+      "technical_aspects": [
+        "Oil on masonite",
+        "Traditional Mexican dress",
+        "Symbolic third eye"
       ]
     }
   },
