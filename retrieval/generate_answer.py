@@ -57,6 +57,15 @@ def generate_response(artist_name, question):
         # Handle specific attribute questions directly
         question_lower = question.lower()
         
+        # Handle general art movement questions
+        if 'what is' in question_lower and any(term in question_lower for term in ['movement', 'style', 'impressionism', 'surrealism', 'cubism']):
+            movements_mentioned = [mov for mov in ['impressionism', 'surrealism', 'cubism'] if mov in question_lower]
+            if movements_mentioned:
+                if movements_mentioned[0] in artist_info['genre'].lower():
+                    return f"{movements_mentioned[0].title()} is an art movement that {artist_name} was associated with. {artist_info['bio']}"
+                else:
+                    return f"While {artist_name} was not associated with {movements_mentioned[0].title()}, they were known for {artist_info['genre']}."
+        
         # Handle nationality questions
         if 'nationality' in question_lower or 'what country' in question_lower:
             return f"{artist_name} was {artist_info['nationality']}."
@@ -65,10 +74,11 @@ def generate_response(artist_name, question):
         if any(term in question_lower for term in ['movement', 'style', 'artistic movement', 'associated with']):
             movements = artist_info['genre'].split(',')
             if len(movements) == 1:
-                return f"{artist_name} was associated with {movements[0]}."
+                return f"{artist_name} was associated with {movements[0].strip()}."
             elif len(movements) == 2:
-                return f"{artist_name} was associated with {movements[0]} and {movements[1]}."
+                return f"{artist_name} was associated with {movements[0].strip()} and {movements[1].strip()}."
             else:
+                movements = [m.strip() for m in movements]
                 movements_str = ", ".join(movements[:-1]) + f", and {movements[-1]}"
                 return f"{artist_name} was associated with {movements_str}."
                 
@@ -84,41 +94,50 @@ def generate_response(artist_name, question):
                 birth, death = years
                 return f"{artist_name} lived from {birth} to {death}."
             return f"{artist_name}'s lifespan was {artist_info['years']}."
+            
+        # Handle biographical questions
+        if any(term in question_lower for term in ['tell me about', 'who is', 'who was', 'more about']):
+            return artist_info['bio']
         
-        # For other questions, use the model but with improved context
+        # For other questions, use the model with improved context
         tokenizer, model = load_model()
         
         # Include relevant attributes in the prompt for context
-        context = f"{artist_name} was a {artist_info['nationality']} artist ({artist_info['years']}) known for {artist_info['genre']}. "
-        prompt = f"{context}{question}"
+        context = f"{artist_name} was a {artist_info['nationality']} artist ({artist_info['years']}) known for {artist_info['genre']}. {artist_info['bio']} "
+        prompt = f"Based on this information about {artist_name}: {context}\nQuestion: {question}\nAnswer:"
         
         print("Generating response...")
         with torch.no_grad():
             outputs = model.generate(
                 inputs=tokenizer.encode(prompt, return_tensors="pt"),
-                max_length=150,  # Reduced max length to avoid repetition
+                max_length=200,
                 do_sample=True,
-                top_k=40,       # Reduced from 50 to make responses more focused
-                top_p=0.85,     # Reduced from 0.95 to make responses more consistent
-                temperature=0.6, # Reduced from 0.7 to make responses more consistent
+                top_k=30,
+                top_p=0.85,
+                temperature=0.6,
                 num_return_sequences=1,
-                no_repeat_ngram_size=3,  # Prevent repeating of 3-word phrases
+                no_repeat_ngram_size=3,
                 pad_token_id=tokenizer.eos_token_id
             )
 
         decoded = tokenizer.decode(outputs[0], skip_special_tokens=True)
-        response = decoded[len(prompt):].strip()
+        response = decoded.split("Answer:")[-1].strip()
         
-        # Clean up the response by removing repetitive phrases
+        # Clean up the response
         sentences = [s.strip() for s in response.split('.') if s.strip()]
         unique_sentences = []
+        seen = set()
         for s in sentences:
-            if s not in unique_sentences:
+            s_lower = s.lower()
+            if s_lower not in seen:
                 unique_sentences.append(s)
-        response = '. '.join(unique_sentences) + '.'
+                seen.add(s_lower)
         
-        print("Response generated successfully")
-        return response if response else "I apologize, I couldn't generate a meaningful response."
+        response = '. '.join(unique_sentences)
+        if not response.endswith('.'):
+            response += '.'
+            
+        return response if response else artist_info['bio']
         
     except Exception as e:
         print(f"Error generating response: {str(e)}")

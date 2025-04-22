@@ -24,16 +24,15 @@ def query_artists(question, k=3):
         
         # Direct name matching for questions that mention artist names
         artist_names_lower = [name.lower() for name in artist_names]
-        question_lower = question.lower()
+        question_lower = question.lower().split()
         
         # Check for direct name mentions first
         direct_matches = []
         for idx, name in enumerate(artist_names_lower):
-            first_last = name.split()
-            if len(first_last) >= 2:
-                first_name, last_name = first_last[0], first_last[-1]
-                if last_name in question_lower or (first_name in question_lower and last_name in question_lower):
-                    direct_matches.append((idx, 1.0))
+            name_parts = name.split()
+            # Match if full name or last name is mentioned
+            if any(part in question_lower for part in name_parts):
+                direct_matches.append((idx, 1.0))
         
         if direct_matches:
             results = [(artist_names[idx], score) for idx, score in direct_matches]
