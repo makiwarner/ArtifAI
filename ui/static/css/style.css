@@ -1,0 +1,150 @@
+/* Base Theme Variables */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --accent-color: #a67c52; 
+    --header-bg: #f0f0f0;
+}
+
+/* Apply the Background Image and Base Styles */
+body {
+    background-image: url('/static/images/light-background.png');
+    background-size: cover;       /* Ensure the image covers the full viewport */
+    background-position: center;  /* Center the image */
+    background-attachment: fixed; /* Fixed for a parallax-like effect */
+    background-color: var(--bg-color); /* Fallback color */
+    color: var(--text-color);
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header {
+    background-color: var(--header-bg);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+
+/* Position the main chat area */
+main {
+    position: relative;         
+    max-width: 500px;
+    margin: 100px 0 0 330px;    /* Adjust this to position the chat container on your background */
+    padding: 0;                 
+}
+
+/* Chat Container Styles */
+#chat-container {
+    width: 640px;              
+    height: 350px;
+    overflow-y: scroll;
+    background-color: var(--header-bg);
+    border: 1px solid var(--accent-color);
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+/* Message Bubbles */
+.message {
+    margin-bottom: 10px;
+    display: flex;           /* Allow avatar and text to sit on the same row */
+    align-items: flex-start;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.message.user {
+    text-align: right;
+    background-color: #efe6da;
+    justify-content: flex-end;  /* Align user message content to the right */
+}
+
+.message.bot {
+    text-align: left;
+    background-color: #D2B48C;
+}
+
+/* Avatar for bot messages */
+.message.bot .avatar {
+    width: 40px;              /* Avatar size; adjust as needed */
+    height: 40px;
+    border-radius: 50%;       /* Makes it a circle */
+    margin-right: 8px;        /* Space between the avatar and the text */
+    object-fit: cover;        /* Ensures the image covers the circular area */
+}
+
+/* The text container inside a message (optional, if you need extra styling) */
+.message .message-text {
+    display: block;
+}
+
+/* Chat Form (Input and Button) */
+#chatForm {
+    width: 665px;
+    display: flex;
+}
+
+#messageInput {
+    flex: 1;
+    padding: 10px;
+    transform: translateY(26px);
+    border: 1px solid var(--accent-color);
+    border-right: none;
+    font-size: 16px;
+}
+
+#chatForm button {
+    padding: 10px;
+    transform: translateY(26px);
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* History Section Styles */
+#history-container {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    width: 200px;
+    background-color: var(--header-bg);
+    border: 1px solid var(--accent-color);
+    padding: 15px;
+    border-radius: 4px;
+}
+
+#history-container h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+
+#current-artist {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    background-color: #D2B48C;
+    border-radius: 4px;
+}
+
+#current-artist .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+#current-artist-name {
+    color: var(--text-color);
+    font-weight: 500;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ArtifAI Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>ArtifAI Chat</h1>
+    </header>
+    <main>
+        <div id="history-container">
+            <h2>Current Artist</h2>
+            <div id="current-artist">
+                <img id="current-artist-avatar" class="avatar" style="display: none;">
+                <span id="current-artist-name">None</span>
+            </div>
+        </div>
+        <div id="chat-container">
+            <!-- Prepopulate with the greeting message -->
+            <div class="message bot">{% autoescape false %}{{ greeting }}{% endautoescape %}</div>
+        </div>
+        <form id="chatForm">
+            <input type="text" id="messageInput" placeholder="Type your message here..." autocomplete="off">
+            <button type="submit">Send</button>
+        </form>
+    </main>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
