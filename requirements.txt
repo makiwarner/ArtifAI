@@ -16,3 +16,7 @@ numpy<2
 torch
 wikipedia
 nltk
+pandas
+matplotlib
+datasets
+evaluate

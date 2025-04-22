@@ -47,3 +47,5 @@ coverage.xml
 # Environment variables or secrets
 .env
 .env.*
+
+data/

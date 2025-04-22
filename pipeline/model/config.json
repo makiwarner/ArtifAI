@@ -1,0 +1,8 @@
+{
+  "model": "gpt2",
+  "epochs": 3,
+  "batch_size": 2,
+  "max_length": 512,
+  "save_dir": "output/",
+  "eval_strategy": "no"
+}
