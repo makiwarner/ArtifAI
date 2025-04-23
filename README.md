@@ -170,9 +170,6 @@ ArtifAI/
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 
@@ -180,4 +177,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Facebook Research for FAISS
 - OpenAI for GPT-2
 - All the amazing artists whose work and lives we learn from
-
