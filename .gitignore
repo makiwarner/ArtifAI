@@ -51,4 +51,4 @@ coverage.xml
 data/
 scripts/
 trial.py
-.data.py
+data.py
