@@ -1,174 +1,88 @@
+from flask import Flask, render_template, request, jsonify, send_from_directory
 import os
-import json
-import re
-import spacy
-import nltk
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from flask import Flask, request, jsonify, render_template
-from modules.faq import get_best_faq_answer
-from modules.sentence_matcher import get_best_sentence
-from modules.flatten import flatten_content
 
-nltk.download('stopwords')
-nltk.download('punkt')
+from retrieval.query_retriever import query_artists
+from retrieval.generate_answer import generate_response
 
-# Updated the ARTIST_FOLDER to use an absolute path for better compatibility
-ARTIST_FOLDER = os.path.join(os.path.dirname(__file__), '..', 'artists')
-artist_files = [f for f in os.listdir(ARTIST_FOLDER) if f.endswith(".json")]
-# Get sorted list of artist keys (filenames without .json)
-artist_keys_sorted = sorted([os.path.splitext(f)[0] for f in artist_files])
+app = Flask(__name__, static_folder="static", template_folder="templates")
 
-# Global variable to hold the active chatbot instance (for a single session demo)
-active_chatbot = None
+# Create a single instance of the chatbot
+bot = None
 
-app = Flask(__name__)
+def get_bot():
+    global bot
+    if bot is None:
+        bot = WebArtistChatBot()
+    return bot
 
-# ------------------------------------------------------------------------------
-# NLP Helper class for the web-based artist chatbot using JSON/spaCy logic 
-# ------------------------------------------------------------------------------
 class WebArtistChatBot:
-    """
-    Loads an artist’s JSON from the artists folder and uses spaCy to find
-    the best matching sentence or FAQ answer from the artist's data.
-    """
-    def __init__(self, json_filename, artist_directory="artists"):
-        self.artist_directory = artist_directory
-        self.artist_info = {}
-        self.sentences = []
-        self.faq_map = []  # List to store FAQ mappings: {"question": ..., "answer": ..., "notes": ...}
-        self.nlp = spacy.load("en_core_web_md") 
-
-        file_path = os.path.join(self.artist_directory, json_filename)
-        with open(file_path, "r") as f:
-            self.artist_info = json.load(f)
-
-        # Process all info from the JSON.
-        sections = [
-            "bio", "lore", "knowledge", "influencesAndInfluenced", "techniqueAndMaterials",
-            "interpretationsAndCriticism", "artworks/paintings", "FAQ", "postExamples", "topics",
-            "style/kind", "adjectives"
-        ]
-
-        for section in sections:
-            if section in self.artist_info:
-                content = self.artist_info[section]
-                # Special handling for FAQ to build our FAQ mapping.
-                if section == "FAQ" and isinstance(content, list):
-                    for item in content:
-                        if isinstance(item, dict):
-                            question_text = item.get("question", "").strip()
-                            answer_text = item.get("answer", "").strip()
-                            notes_text = item.get("notes", "").strip() if item.get("notes") else ""
-                            if question_text and answer_text:
-                                self.faq_map.append({
-                                    "question": question_text,
-                                    "answer": answer_text,
-                                    "notes": notes_text
-                                })
-                                # Optionally also add the answer to the general sentences.
-                                self.sentences.append(answer_text)
-                        elif isinstance(item, str):
-                            self.sentences.append(item.strip())
-                else:
-                    # Use the recursive flatten_content to extract all strings.
-                    flattened_sentences = flatten_content(content)
-                    self.sentences.extend(flattened_sentences)
-
-        # Remove duplicates if needed.
-        self.sentences = list(set(self.sentences))
+    def __init__(self):
         self.end_chat = False
-
-    def get_best_faq_answer(self, user_input):
-        return get_best_faq_answer(user_input, self.faq_map, self.nlp)
-
-    def get_best_sentence(self, user_input):
-        return get_best_sentence(user_input, self.sentences, self.nlp)
+        self.current_artist = None
+        self.conversation_history = []
 
     def respond(self, user_input):
-        # Check for exit commands
         if user_input.lower() in ["bye", "quit", "exit"]:
             self.end_chat = True
-            return "Goodbye! See you next time."
+            return "Goodbye!", None, None
 
-        # First, try matching against FAQ questions.
-        faq_answer = self.get_best_faq_answer(user_input)
-        if faq_answer:
-            return faq_answer
+        # If question is about previous artist (using pronouns or implicit references)
+        question_lower = user_input.lower()
+        has_pronouns = any(word in question_lower for word in ['he', 'she', 'they', 'his', 'her', 'their', 'them'])
+        
+        if self.current_artist and (has_pronouns or not any(name.lower() in question_lower for name in query_artists.artist_names)):
+            # Use current artist context
+            answer = generate_response(self.current_artist, user_input)
+            avatar_filename = f"{self.current_artist.lower().replace(' ', '_')}.jpg"
+            return answer, avatar_filename, self.current_artist
 
-        # Otherwise, use the general text matching.
-        best_sentence = self.get_best_sentence(user_input)
-        if best_sentence:
-            return best_sentence
-        else:
-            return "I'm sorry, I don't have an answer for that."
+        # Otherwise try to find new artist context
+        top_matches = query_artists(user_input, k=1)
+        if not top_matches:
+            # Keep current artist context even if no new artist is found
+            return "Sorry, I couldn't find a relevant artist.", None, self.current_artist
 
-# ------------------------------------------------------------------------------
-# Flask Routes
-# ------------------------------------------------------------------------------
+        best_artist, _ = top_matches[0]
+        self.current_artist = best_artist
+        answer = generate_response(best_artist, user_input)
+        avatar_filename = f"{best_artist.lower().replace(' ', '_')}.jpg"
+        
+        return answer, avatar_filename, best_artist
+
 
 @app.route("/")
 def index():
-    """
-    Render the main chat UI. The greeting message (welcome text with artists)
-    is pre-computed and passed to the template.
-    """
-    greeting_msg = "Hello! Welcome to ArtifAI. Our supported artists are:<br>"
-    artists = [
-        "Hieronymus Bosch",
-        "Sandro Botticelli",
-        "Leonardo Da Vinci",
-        "Frida Kahlo",
-        "Gustav Klimt",
-        "Claude Monet",
-        "Pablo Picasso",
-        "Diego Rivera",
-        "Vincent Van Gogh",
-        "Johannes Vermeer"
-    ]
-    for idx, name in enumerate(artists, start=1):
-        greeting_msg += f"{idx}. {name}<br>"
-    greeting_msg += "Who would you like to speak with today? (Type a number)"
-    return render_template("index.html", greeting=greeting_msg)
+    # Initialize the bot when the page loads
+    get_bot()
+    greeting = "🎨 Welcome to ArtifAI! Ask a question about a famous artist."
+    return render_template("index.html", greeting=greeting)
+
 
 @app.route("/chat", methods=["POST"])
 def chat():
-    global active_chatbot
-    data = request.get_json() or {}
-    user_input = data.get("message", "").strip()
-    if not user_input:
-        return jsonify({"response": "Please provide a message."})
+    try:
+        user_input = request.json.get("message", "")
+        if not user_input:
+            return jsonify({"error": "No message provided"}), 400
+            
+        bot = get_bot()
+        response, avatar, current_artist = bot.respond(user_input)
+        
+        if not response:
+            return jsonify({"error": "Could not generate response"}), 500
+            
+        return jsonify({"response": response, "avatar": avatar, "current_artist": current_artist})
+    except Exception as e:
+        print(f"Error in chat route: {str(e)}")
+        return jsonify({"error": "There was an error processing your request."}), 500
 
-    # If we haven't chosen an artist yet, the user must supply a valid integer:
-    if not active_chatbot:
-        try:
-            index = int(user_input)
-            if 1 <= index <= len(artist_keys_sorted):
-                selected_key = artist_keys_sorted[index - 1]
-                selected_file = f"{selected_key}.json"
-                active_chatbot = WebArtistChatBot(selected_file, ARTIST_FOLDER)
-                
-                active_chatbot.avatar_filename = f"{selected_key}.jpg"
-                artist_display_name = active_chatbot.artist_info.get("name", selected_key.title()).title()
-                return jsonify({
-                    "response": f"This is {artist_display_name}. What would you like to know?",
-                    "avatar": active_chatbot.avatar_filename
-                })
-            else:
-                return jsonify({"response": "Invalid number. Please try again."})
-        except ValueError:
-            # The user typed something that isn't an integer,
-            # so re-prompt them to type an integer between 1 and N.
-            return jsonify({"response": "Please type a valid integer corresponding to the artist you want to speak with."})
-    else:
-        # If the artist is already chosen, just chat freely with the bot.
-        response_text = active_chatbot.respond(user_input)
-        if active_chatbot.end_chat:
-            active_chatbot = None
-        return jsonify({
-            "response": response_text,
-            "avatar": getattr(active_chatbot, "avatar_filename", None)
-        })
+
+@app.route("/static/<path:filename>")
+def serve_static(filename):
+    return send_from_directory(os.path.join(app.root_path, 'static'), filename)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

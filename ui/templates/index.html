@@ -10,6 +10,13 @@
         <h1>ArtifAI Chat</h1>
     </header>
     <main>
+        <div id="history-container">
+            <h2>Current Artist</h2>
+            <div id="current-artist">
+                <img id="current-artist-avatar" class="avatar" style="display: none;">
+                <span id="current-artist-name">None</span>
+            </div>
+        </div>
         <div id="chat-container">
             <!-- Prepopulate with the greeting message -->
             <div class="message bot">{% autoescape false %}{{ greeting }}{% endautoescape %}</div>

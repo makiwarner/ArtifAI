@@ -47,3 +47,8 @@ coverage.xml
 # Environment variables or secrets
 .env
 .env.*
+
+data/
+scripts/
+trial.py
+data.py

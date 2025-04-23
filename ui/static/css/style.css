@@ -110,3 +110,41 @@ main {
     cursor: pointer;
     font-size: 16px;
 }
+
+/* History Section Styles */
+#history-container {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    width: 200px;
+    background-color: var(--header-bg);
+    border: 1px solid var(--accent-color);
+    padding: 15px;
+    border-radius: 4px;
+}
+
+#history-container h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+
+#current-artist {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    background-color: #D2B48C;
+    border-radius: 4px;
+}
+
+#current-artist .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+#current-artist-name {
+    color: var(--text-color);
+    font-weight: 500;
+}

@@ -2,10 +2,25 @@ document.addEventListener("DOMContentLoaded", function() {
     const chatForm = document.getElementById("chatForm");
     const messageInput = document.getElementById("messageInput");
     const chatContainer = document.getElementById("chat-container");
+    const currentArtistName = document.getElementById("current-artist-name");
+    const currentArtistAvatar = document.getElementById("current-artist-avatar");
 
     // Constants for repeated strings
     const CHAT_ENDPOINT = "/chat";
     const CONTENT_TYPE = "Content-Type";
+
+    function updateCurrentArtist(artistName, avatar) {
+        if (artistName) {
+            currentArtistName.textContent = artistName;
+            if (avatar) {
+                currentArtistAvatar.src = `/static/images/${avatar}`;
+                currentArtistAvatar.style.display = "block";
+            }
+        } else {
+            currentArtistName.textContent = "None";
+            currentArtistAvatar.style.display = "none";
+        }
+    }
 
     chatForm.addEventListener("submit", async function(e) {
         e.preventDefault();
@@ -29,9 +44,12 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             const data = await response.json();
-            // data.response = textual reply
-            // data.avatar = e.g. "botticelli.jpg"
             addMessage("bot", data.response, data.avatar);
+            
+            // Update current artist if provided
+            if (data.current_artist) {
+                updateCurrentArtist(data.current_artist, data.avatar);
+            }
         } catch (error) {
             console.error("Error:", error);
             addMessage("bot", "There was an error processing your request.");
