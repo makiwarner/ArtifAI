@@ -49,3 +49,5 @@ coverage.xml
 .env.*
 
 data/
+scripts/
+trial.py
