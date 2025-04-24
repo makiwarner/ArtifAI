@@ -120,6 +120,7 @@ pip install -r requirements.txt
 
 3. Download required model files:
 - Place GloVe embeddings in `data/glove.6B.300d.txt`
+- Download the data folder from https://drive.google.com/file/d/1SGuivE4gaPKqviMbJJEsH5pRE8nYR-pZ/view?usp=sharing 
 - Download pre-trained models into the `output/` directory
 
 ## Usage
